@@ -28,7 +28,11 @@ public class KeyManager implements NativeKeyListener {
 		} 
 		
 		if (hotKeyflag == (MASK_CTRL | MASK_ALT)) {
-			System.out.println("Hotkey pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
+			try {
+                GlobalScreen.unregisterNativeHook();
+            } catch (NativeHookException nativeHookException) {
+                nativeHookException.printStackTrace();
+            }
 		}
 	}
 
