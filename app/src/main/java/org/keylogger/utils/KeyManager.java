@@ -49,7 +49,13 @@ public class KeyManager implements NativeKeyListener {
 		System.out.println("Key Typed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
 	}
 
-	public void postKeyEvent(NativeKeyEvent e) {
-		GlobalScreen.postNativeEvent(e);
+	// int id = NativeKeyEvent.NATIVE_KEY_PRESSED;
+	// int modifiers = NativeKeyEvent.CTRL_MASK; 
+	// int rawCode = 29; 
+	// int keyCode = NativeKeyEvent.VC_CONTROL; 
+	// char charCode = NativeKeyEvent.CHAR_UNDEFINED;
+
+	public static void postKeyEvent(int id, int modifiers, int rawCode, int keyCode, char charCode) {
+		GlobalScreen.postNativeEvent(new NativeKeyEvent(id, modifiers, rawCode, keyCode, charCode));
 	}
 }
